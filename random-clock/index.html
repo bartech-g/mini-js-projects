@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html data-theme="dark">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://anjana.dev/vanilla-js-projects/favicon.svg"
+    />
+
+    <title>Random Clock | Vanilla JS Projects</title>
+    <style>
+      #clock {
+        width: 100%;
+        height: 50vh;
+        position: relative;
+      }
+
+      #clock p {
+        width: 200px;
+        position: relative;
+        font-size: xx-large;
+		transition-duration: .3s;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="./sources/pico.css"
+    />
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="./sources/spacing.css"
+    />
+  </head>
+
+  <body class="container">
+    <header>
+      <h1>random clock</h1>
+    </header>
+
+    <main class="container">
+      <article>
+        <div id="clock">
+          <p id="time"></p>
+        </div>
+      </article>
+    </main>
+
+    <script id="clock.js">
+		const clock = document.getElementById("clock")
+		const time = document.getElementById("time")
+				
+
+
+		const updateTime = () => {
+			const topOffset = (Math.random() * 100) + "%"
+			const leftOffset = (Math.random() * 100) + "%"
+			const rightOffset = (Math.random() * 100) + "%"
+			const bottomOffset = (Math.random() * 100) + "%"
+			const randomColor = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+			const currentTime = new Date();			
+			time.innerText = currentTime.toLocaleTimeString()	
+			time.style.top = topOffset;
+			time.style.bottom = bottomOffset;
+			time.style.left = leftOffset;
+			time.style.right = rightOffset;
+			time.style.color = randomColor;
+			console.log(randomColor)			
+		}
+
+		updateTime()
+		setInterval(updateTime, 2000)
+
+	</script>
+  </body>
+</html>
